@@ -1,6 +1,6 @@
 {
   "name": "editoracao",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Back-End do sistema de Editoração com Node.js, Express.js, MongoDB e Mongoose",
   "main": "server.js",
   "scripts": {
