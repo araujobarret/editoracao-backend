@@ -1,7 +1,18 @@
 let mongoose = require('mongoose');
 
+let options = {
+	server: { socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}},
+	replset: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}}
+};
+
+let mLabUri = "mongodb://editoracaoadmin:benjamin@ds255265.mlab.com:55265/editoracao";
+
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/TesteApp', { useMongoClient: true});
+// mongoose.connect('mongodb://localhost:27017/TesteApp', options);
+mongoose.connect(mLabUri, options);
+let conn = mongoose.connection;
+
+conn.on("error", console.error.bind(console, "conection error:"));
 
 module.exports = {
 	mongoose
