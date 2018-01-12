@@ -5,10 +5,10 @@ let options = {
 	replset: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}}
 };
 
+// mLab connection
 let mLabUri = "mongodb://editoracaoadmin:benjamin@ds255265.mlab.com:55265/editoracao";
 
 mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb://localhost:27017/TesteApp', options);
 mongoose.connect(mLabUri, options);
 let conn = mongoose.connection;
 
