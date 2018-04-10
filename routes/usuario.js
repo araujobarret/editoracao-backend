@@ -10,7 +10,7 @@ let router = express.Router();
 router.post('/usuario', (req, res) => {
   let body = _.pick(req.body, ['login', 'senha']);
   let usuario = new Usuario(body);
-
+  
   usuario.save().then(() => {
     return usuario.generateAuthToken();
   }).then((token) => {

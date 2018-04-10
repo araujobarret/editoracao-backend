@@ -11,8 +11,7 @@ let autenticar = (req, res, next) => {
     req.usuario = usuario;
     req.token = token;
     next();
-  }).catch((e) => {
-    console.log("Error", e);
+  }).catch((e) => {    
     res.status(401).send(e);
   });
 };

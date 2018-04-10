@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 let {mongoose} = require('./db/mongoose');
 
 let app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
