@@ -24,7 +24,7 @@ router.get('/autor/', (req, res) => {
     .catch((e) => res.status(400).send());
 });
 
-router.patch('/autor/:id', autenticar, (req, res) => {
+router.put('/autor/:id', autenticar, (req, res) => {
   let body = _.pick(req.body, ['nome']);
   let id = req.params.id;
 

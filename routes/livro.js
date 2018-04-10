@@ -56,7 +56,7 @@ router.get('/livro/:id', (req, res) => {
     }).catch((e) => res.status(400).send(e));
 });
 
-router.patch('/livro/:id', autenticar, (req, res) => {
+router.put('/livro/:id', autenticar, (req, res) => {
   let id = req.params.id;
   let body = _.pick(req.query, ['isbn', 'titulo', 'ano', 'paginas', 'peso', 'formato', 'valor_venda', 'ean']);
   let autores = _.pick(req.body, ['autores']);

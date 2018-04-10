@@ -31,7 +31,7 @@ router.get('/local', (req, res) => {
     .catch((e) => res.status(400).send(e));
 });
 
-router.patch('/local/:id', autenticar, (req, res) => {
+router.put('/local/:id', autenticar, (req, res) => {
   let id = req.params.id;
   let body = _.pick(req.body, ['descricao', '_idSubLocal']);
   let unset = {};

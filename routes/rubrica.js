@@ -24,7 +24,7 @@ router.get('/rubrica/', (req, res) => {
     .catch((e) => res.status(400).send(e));
 });
 
-router.patch('/rubrica/:id', autenticar,(req, res) => {
+router.put('/rubrica/:id', autenticar,(req, res) => {
   let body = _.pick(req.body, ['codigo', 'descricao', 'tipo']);
   let id = req.params.id;
 

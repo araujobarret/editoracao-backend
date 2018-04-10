@@ -1,7 +1,7 @@
 let {Usuario} = require('./../model/usuario');
 
 let autenticar = (req, res, next) => {
-  let token = req.header('x-auth');
+  let token = req.header('Authorization');
 
   Usuario.findByToken(token).then((usuario) => {
     if(!usuario){
