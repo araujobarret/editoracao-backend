@@ -11,7 +11,10 @@ let autenticar = (req, res, next) => {
     req.usuario = usuario;
     req.token = token;
     next();
-  }).catch((e) => res.status(401).send(e));
+  }).catch((e) => {
+    console.log("Error", e);
+    res.status(401).send(e);
+  });
 };
 
 module.exports = {autenticar};
