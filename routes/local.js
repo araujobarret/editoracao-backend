@@ -34,7 +34,6 @@ router.get('/local', (req, res) => {
 router.put('/local/:id', autenticar, (req, res) => {
   let id = req.params.id;
   let body = _.pick(req.body, ['descricao', '_idSubLocal']);
-  let unset = {};
 
   if(!ObjectID.isValid(id))
     res.status(404).send();
@@ -42,26 +41,13 @@ router.put('/local/:id', autenticar, (req, res) => {
   if(body._idSubLocal){
     if(!ObjectID.isValid(body._idSubLocal))
       res.status(404).send();
-  }
-  else {
-    unset['_idSubLocal'] = "";
-  }
+  }  
 
-  if(_.isEmpty(unset)) {
-    Local.findByIdAndUpdate(id, {
-       $set: body
-     }, {new: true})
-      .then((local) => res.send(local))
-      .catch((e) => res.status(400).send(e));
-  }
-  else {
-    Local.findByIdAndUpdate(id, {
-       $set: body,
-       $unset: unset
-     }, {new: true})
-      .then((local) => res.send(local))
-      .catch((e) => res.status(400).send(e));
-  }
+  Local.findByIdAndUpdate(id, {
+     $set: body
+   }, {new: true})
+    .then((local) => res.send(local))
+    .catch((e) => res.status(400).send(e));
 });
 
 module.exports = router;
