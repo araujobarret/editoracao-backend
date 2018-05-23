@@ -19,9 +19,16 @@ router.post('/rubrica/', autenticar, (req, res) => {
 router.get('/rubrica/', (req, res) => {
   let body = _.pick(req.query, ['_id', 'codigo', 'descricao', 'tipo']);
 
-  Rubrica.find(body)
-    .then((rubricas) => res.send(rubricas))
-    .catch((e) => res.status(400).send(e));
+  if (body.tipo) {
+    const tipos = body.tipo.split(",");
+    Rubrica.find({ tipo: { $in: tipos }})
+      .then((rubricas) => res.send(rubricas))
+      .catch((e) => res.status(400).send(e));
+  } else {
+    Rubrica.find(body)
+      .then((rubricas) => res.send(rubricas))
+      .catch((e) => res.status(400).send(e));
+  }
 });
 
 router.put('/rubrica/:id', autenticar,(req, res) => {
