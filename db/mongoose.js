@@ -8,6 +8,7 @@ let options = {
 // mLab connection
 let mLabUri = "mongodb://editoracaoadmin:benjamin@ds255265.mlab.com:55265/editoracao";
 
+mongoose.set('debug', true)
 mongoose.Promise = global.Promise;
 mongoose.connect(mLabUri, options);
 let conn = mongoose.connection;

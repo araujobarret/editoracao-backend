@@ -4,7 +4,7 @@
   "description": "Back-End do sistema de Editoração com Node.js, Express.js, MongoDB e Mongoose",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --timeout 10000",
     "start": "node server.js"
   },
   "author": "Carlos Alberto de Araujo Barreto",
@@ -20,5 +20,10 @@
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.3",
     "validator": "^9.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0"
   }
 }

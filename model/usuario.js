@@ -33,7 +33,7 @@ let usuarioSchema = mongoose.Schema({
     minlength: 8
   },
   tokens: [ tokenSchema ]
-});
+}, { usePushEach: true });
 
 usuarioSchema.methods.generateAuthToken = function(){
   let usuario = this;
